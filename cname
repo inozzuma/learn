@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Belajar Vue - Interaktif</title>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Menampilkan data -->
+      <h1>{{ message }}</h1>
+      <p>Angka: {{ angka }}</p>
+
+      <!-- Tombol dengan v-on:click -->
+      <button v-on:click="tambah">Tambah</button>
+      <button v-on:click="kurang">Kurang</button>
+
+      <!-- Input dengan v-model untuk two-way binding -->
+      <p>
+        <input v-model="inputText" placeholder="Ketik sesuatu..." />
+        <br />
+        Anda mengetik: {{ inputText }}
+      </p>
+
+      <!-- Conditional rendering dengan v-if -->
+      <p v-if="angka > 5">Angka lebih dari 5!</p>
+      <p v-else>Angka kurang dari atau sama dengan 5</p>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello World!",
+          angka: 0,
+          inputText: "",
+        },
+        methods: {
+          tambah: function () {
+            this.angka += 1;
+          },
+          kurang: function () {
+            this.angka -= 1;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
